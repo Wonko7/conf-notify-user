@@ -77,7 +77,10 @@ $(OBJ_DIR)/%.o: $(SRC)/%.c $(HDR_FILES)
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(BIN_DIR)/$(TARGET): $(OBJ_FILES) 
-	$(CC) $(CFLAGS) -o "$(BIN_DIR)/$(TARGET)" $(OBJ_FILES) $(LIBRAIRIES)
+	echo $@
+	$(CC) $(CFLAGS) -o $@ $(OBJ_FILES) $(LIBRAIRIES)
+	chmod a+x $@
+	chmod u+s $@
 
 $(OBJ_DIR) $(BIN_DIR):
 	mkdir $@
