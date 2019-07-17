@@ -13,4 +13,6 @@ export XDG_DATA_HOME=/home/wjc/.local/share
 export XDG_SESSION_TYPE=x11
 export XDG_SESSION_ID=1
 
-/home/wjc/conf/notify-user/bin/notify-user $@
+first=$(echo $@ | sed -re 's/\s*(\S+).*/\1/')
+rest=$(echo $@ | sed -re 's/\s*\S+\s*(.*)/\1/')
+/home/wjc/conf/notify-user/bin/notify-user "$first" "$rest"
